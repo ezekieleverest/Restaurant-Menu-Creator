@@ -6,11 +6,11 @@ var db = require("../models");
 module.exports = function(app) {
 
   // GET route for getting all of the menu
-  app.get("/api/menu", function(req, res) {
-    // var query = {};
-    // if (req.query.author_id) {
-    //   query.AuthorId = req.query.author_id;
-    // }
+  app.get("/api/admin", function(req, res) {
+    var query = {};
+    if (req.query.author_id) {
+      query.AuthorId = req.query.author_id;
+    }
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Author
@@ -38,14 +38,14 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new post
-  app.post("/api/admin", function(req, res) {
+  app.post("/api/menu", function(req, res) {
     db.menu.create(req.body).then(function(dbmenu) {
       res.json(dbmenu);
     });
   });
 
   // DELETE route for deleting menu
-  app.delete("/api/admin/:id", function(req, res) {
+  app.delete("/api/menu/:id", function(req, res) {
     db.menu.destroy({
       where: {
         id: req.params.id
@@ -56,7 +56,7 @@ module.exports = function(app) {
   });
 
   // PUT route for updating menu
-  app.put("/api/admin", function(req, res) {
+  app.put("/api/menu", function(req, res) {
     db.menu.update(
       req.body,
       {
