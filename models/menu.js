@@ -1,20 +1,20 @@
 module.exports = function(sequelize, DataTypes) {
-    var menus = sequelize.define("menus", {
+    var menu = sequelize.define("menu", {
       title: DataTypes.STRING,
       description: DataTypes.STRING,
       price: DataTypes.DECIMAL,
       // categoriesId: DataTypes.INTEGER
     });
   
-    menus.associate = function(models) {
+    menu.associate = function(models) {
       // Associating menu with Posts
       // When an menu is deleted, also delete any associated Posts
-      menus.belongsTo(models.categories, {
+      menu.belongsTo(models.categories, {
         foreignKey: {
           allowNull: false
         }
       });
     };
   
-    return menus;
+    return menu;
   };
