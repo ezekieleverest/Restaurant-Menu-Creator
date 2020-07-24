@@ -3,7 +3,7 @@ USE restaurant_db;
 INSERT INTO category (title, description) VALUES ("Burgers", "Each burger comes with your choice of sides: coleslaw, fruit cup, french fries, steak fries, sweet potato fries, waffle fries, and maybe-not fries");
 INSERT INTO category (title, description) VALUES ("Steaks", "Each steak comes with your choice of sides: mashed potatoes and grave, coleslaw, fruit cup, roasted vegetables, or a side salad");
 INSERT INTO category (title, description) VALUES ("Appetizers", "Careful, now there are some big entrees coming up, make your you can handle everything!");
-INSERT INTO category (title, description) VALUES ("Desserts", "Only for those who are already overweight and don't care about how many calories they've already consumed.");
+INSERT INTO category (title, description) VALUES ("Desserts", c);
 
 INSERT INTO menu (title, description, price, category) VALUES ("Hamburger", "Seriously, you need a description?", 8, 1);
 INSERT INTO menu (title, description, price, category) VALUES ("Cheeseburger", "A burger with some cheese.  Obviously.", 9, 1);
