@@ -16,7 +16,7 @@ module.exports = function(app) {
     // In this case, just db.Author
     db.menu.findAll({
       where: query,
-      include: [db.category]
+      include: [db.categories]
     }).then(function(dbmenu) {
       res.json(dbmenu);
     });
@@ -31,7 +31,7 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       },
-      include: [db.category]
+      include: [db.categories]
     }).then(function(dbmenu) {
       res.json(dbmenu);
     });

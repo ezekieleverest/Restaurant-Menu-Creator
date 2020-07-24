@@ -23,12 +23,19 @@ fs
   .forEach(file => {
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
+<<<<<<< HEAD
   });
 
+=======
+  
+
+  });
+>>>>>>> e06764f418462b8abe5a0f182807a260fbb96025
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
+
 });
 
 db.sequelize = sequelize;
