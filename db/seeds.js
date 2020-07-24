@@ -19,7 +19,7 @@ var categories = [
     }
 ];
 
-var menus = [
+var menu = [
     {
         title: "Hamburger",
         description: "Seriously, you need a description?",
@@ -160,7 +160,7 @@ var menus = [
     // })
     db.categories.bulkCreate(categories)
     .then(function () {
-        return db.menus.bulkCreate(menus)
+        return db.menu.bulkCreate(menu)
     })
     .catch(function (err) {
         console.log(err)

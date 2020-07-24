@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     categories.associate = function(models) {
       // We're saying that an menu item should belong to an categories
       // A menu item can't be created without an categories due to the foreign key constraint
-      categories.hasMany(models.menus, {
+      categories.hasMany(models.menu, {
         onDelete: "cascade"
       });
 
