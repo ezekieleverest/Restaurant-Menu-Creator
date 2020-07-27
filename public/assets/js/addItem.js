@@ -1,9 +1,10 @@
-$(document).ready(function() {
+$(document).ready(function () {
 var nameInput = $(".card-title")
     
 $(document).on("submit", "#addItemBtn", newItemSubmit);
 
 function newItemSubmit(event) {
+    console.log(event);
     event.preventDefault();
     // Don't do anything if the name fields hasn't been filled out
     if (!nameInput.val().trim().trim()) {
