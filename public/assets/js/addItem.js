@@ -1,47 +1,63 @@
-$(document).ready(function() {
-var nameInput = $(".card-title")
-    
-$(document).on("submit", "#addItemBtn", newItemSubmit);
+$(document).ready(function () {
 
-function newItemSubmit(event) {
-    event.preventDefault();
-    // Don't do anything if the name fields hasn't been filled out
-    if (!nameInput.val().trim().trim()) {
-      return;
+    $("#addItemForm").on("submit", newItemSubmit);
+
+    function newItemSubmit(event) {
+        event.preventDefault();
+
+        // Don't do anything if the name fields hasn't been filled out
+        // const title = $("#addItemTitle").val().trim()
+        // const price = $("#addItemPrice").val().trim()
+        // const description = $("#addItemDesc").val().trim()
+
+        // if (!(title && description && price)) {
+        //     return;
+        // };
+
+        // $.post("/api/admin", { title, description, price })
+        //     .then(getMenu)
+        //     .catch(function (err) {
+        //         console.log(err.message)
+        //     });
+
+        const newItem = {
+            title: $("#addItemTitle").val().trim(),
+            price: $("#addItemPrice").val().trim(),
+            description: $("#addItemDesc").val().trim()
+        }
+
+        if (Object.values(newItem).some(val => !val)) {
+            return;
+        };
+
+        API.addMenuItem(newItem)
+            .then(() => window.location.replace("/menu"))
+            .catch(function (err) {
+                console.log(err.message)
+            });
+    };
+
+    function getMenu() {
+        API.getMenu()
+            .then(function (data) {
+                // take all the data, loop over it (aka a map) and return html
+                let htmledData = data.map(item => createMenuSpot(item));
+                //console.log(htmledData)
+                // console.log(htmledData)
+                htmledData = htmledData.join('');
+                //console.log(htmledData)
+                // htmledData = JSON.stringify(htmledData)
+                $('#menu-target').empty().append(htmledData);
+            })
+            .catch(function (err) {
+                console.log(err.message)
+            });
     }
-    upsertItem({
-      name: nameInput
-        .val()
-        .trim()
-    });
-  }
-  function upsertItem(menuData) {
-    $.post("/api/admin", menuData)
-      .then(getMenu);
-  }
 
-  function getMenu() {
-    $.get("/api/menu", function (data) {
-        // take all the data, loop over it (aka a map) and return html
-        let htmledData = data.map(item => {
-
-            // console.log(item)
-            return createMenuSpot(item)
-            
-        });
-        console.log(htmledData)
-        // console.log(htmledData)
-        htmledData = htmledData.join('');
-        console.log(htmledData)
-        // htmledData = JSON.stringify(htmledData)
-        $('#menu-target').empty().append(htmledData);
-    });
-}
-
-function createMenuSpot(menuData) {
-    console.log(menuData)
-    let html= 
-    `<div class="card" data-itemId=${menuData.id}>
+    function createMenuSpot(menuData) {
+        // console.log(menuData)
+        let html =
+            `<div class="card" data-itemId=${menuData.id}>
         <div class="card-body">
             <h5 class="card-title">
                 ${menuData.title}
@@ -58,11 +74,13 @@ function createMenuSpot(menuData) {
         </div>
     </div>`;
 
-    return html;
-}
-getMenu()
-$(document).on("click", ".card", function(e) {
-    e.preventDefault();
-    console.log(this.getAttribute('data-itemId'))
-})
+        return html;
+    }
+
+    getMenu()
+
+    $(document).on("click", ".card", function (e) {
+        e.preventDefault();
+        console.log(this.getAttribute('data-itemId'))
+    })
 })
