@@ -5,15 +5,15 @@ const path = require('path');
 module.exports = function(app) {
 
 app.get('/menu', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/menu.html'))
+  res.sendFile(path.join(__dirname, '../public/views/menu.html'))
 });
 
 app.get('/addItem', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/adminRoles.html'))
+  res.sendFile(path.join(__dirname, '../public/views/adminRoles.html'))
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'))
+  res.sendFile(path.join(__dirname, '../public/views/index.html'))
 });
 
 };

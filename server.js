@@ -16,7 +16,7 @@ app.use(express.static('public'));
 
 // Routes
 // =============================================================
-// require("./controllers/htmlcontroller.js")(app);
+require("./controllers/htmlcontroller.js")(app);
 require("./controllers/menuController.js")(app);
 
 
