@@ -3,38 +3,42 @@ $(document).ready(function () {
         $.get("/api/menu", function (data) {
             // take all the data, loop over it (aka a map) and return html
             let htmledData = data.map(item => {
-                // item = JSON.stringify(item)
 
+                // console.log(item)
                 return createMenuSpot(item)
-            // console.log(item) 
+                
             });
             // console.log(htmledData)
+            // console.log(htmledData)
             htmledData = htmledData.join('');
-            console.log(htmledData);
+            // console.log(htmledData)
             // htmledData = JSON.stringify(htmledData)
             $('#menu-target').empty().append(htmledData);
         });
     }
 
     function createMenuSpot(menuData) {
+        console.log(menuData)
+        let html= 
+        `<div class="card m-2 bg-dark border-danger rounded-sm" data-itemId=${menuData.id}>
+            <div class="card-body">
+                <h5 class="card-title text-white">
+                    ${menuData.title}
+                </h5>
+                <h6 class="card-subtitle text-white">
+                    ${menuData.price}
+                </h6>
+                <p class="card-text text-white">
+                    ${menuData.description}
+                </p>
+            </div>
+        </div>`;
 
-        // console.log(menuData)
-        var itemSpot = $("<div>").addClass("card").attr("style", "width: 18rem")
-        var itemBox = $("<div>").addClass("card-body")
-        itemSpot.append(itemBox)
-        var itemTitle = $("<h5>").addClass("card-title")
-        itemTitle.data("title", menuData.title)
-        var itemPrice = $("<h6>").addClass("card-subtitle mb-2 text-muted")
-        itemPrice.data("price", menuData.price)
-        var itemDesc = $("<p>").addClass("card-text")
-        itemDesc.data("description", menuData.description)
-        var itemId = $("<div>").addClass("itemId")
-        itemId.data("id", menuData.id)
-        itemBox.append(itemTitle, itemPrice, itemDesc, itemId)
-        console.log(itemSpot);
-        console.log(itemBox);
-        return itemSpot
-        
+        return html;
     }
     getMenu()
+    $(document).on("click", ".card", function(e) {
+        e.preventDefault();
+        // console.log(this.getAttribute('data-itemId'))
+    })
 })
