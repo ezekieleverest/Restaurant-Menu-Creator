@@ -18,20 +18,12 @@ function getMenu() {
         .then(function (response) {
             console.log(response + "response")
             MenuItems = response;
-<<<<<<< HEAD
-
-=======
->>>>>>> 358fb8bd044f6ad93421a6ab08a7ea50b8e6ca44
             response.forEach(item => {
                 const option = $("<option>")
                 option.val(item.id)
                 option.text(item.title)
                 $("#itemId").append(option)
-<<<<<<< HEAD
-                // console.log(MenuItems) 
-=======
                 // console.log(MenuItems)
->>>>>>> 358fb8bd044f6ad93421a6ab08a7ea50b8e6ca44
             })
         })
         .catch(function (err) {
@@ -41,10 +33,7 @@ function getMenu() {
 
 function selectItem() {
     MenuID = parseInt($(this).val())
-<<<<<<< HEAD
-=======
     
->>>>>>> 358fb8bd044f6ad93421a6ab08a7ea50b8e6ca44
     const MenuItem = MenuItems.find(x => x.id === MenuID)
     console.log(MenuItem)
     $("#itemTitle").val(MenuItem.title)
@@ -54,15 +43,6 @@ function selectItem() {
 }
 
 function removeItem() {
-<<<<<<< HEAD
-    const deleteItem = {
-        id: MenuID,
-        // title: $("#itemTitle").val().trim(),
-        // price: $("#itemPrice").val().trim(),
-        // description: $("#itemDescription").val().trim()
-    }
-    API.removeItem(deleteItem)
-=======
     // const itemRmv = {
     //     id: MenuID,
         // title: $("#itemTitle").val(),
@@ -71,7 +51,6 @@ function removeItem() {
     // }
     console.log(MenuID)
     API.removeItem(MenuID)
->>>>>>> 358fb8bd044f6ad93421a6ab08a7ea50b8e6ca44
         .then(function () {
             window.location.reload()
         })
@@ -81,9 +60,3 @@ function removeItem() {
 }
 
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 358fb8bd044f6ad93421a6ab08a7ea50b8e6ca44
