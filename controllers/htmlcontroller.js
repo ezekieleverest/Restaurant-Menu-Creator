@@ -2,7 +2,7 @@ const path = require('path');
 // const express = require('express');
 // const router = express.Router();
 
-// Requiring our custom middleware for checking if a user is logged in
+// // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
@@ -27,13 +27,10 @@ app.get('/removeItem', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/views/removeItem.html'))
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/views/index.html'))
-});
 app.get("/", function(req, res) {
   // If the user already has an account send them to the members page
   if (req.user) {
-    res.redirect("/members");
+    res.redirect("/adminRoles");
   }
   res.sendFile(path.join(__dirname, "../public/views/signup.html"));
 });
@@ -41,7 +38,7 @@ app.get("/", function(req, res) {
 app.get("/login", function(req, res) {
   // If the user already has an account send them to the members page
   if (req.user) {
-    res.redirect("/members");
+    res.redirect("/adminRoles");
   }
   res.sendFile(path.join(__dirname, "../public/views/login.html"));
 });
@@ -50,6 +47,11 @@ app.get("/login", function(req, res) {
 // If a user who is not logged in tries to access this route they will be redirected to the signup page
 app.get("/members", isAuthenticated, function(req, res) {
   res.sendFile(path.join(__dirname, "../public/views/members.html"));
+});
+
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/views/index.html'))
 });
 
 };
