@@ -1,7 +1,7 @@
 {
     "development": {
       "username": "root",
-      "password": "KandM#6120",
+      "password": "Stickman7",
       "database": "restaurant_db",
       "host": "127.0.0.1",
       "dialect": "mysql"
@@ -10,14 +10,14 @@
     
     "test": {
       "username": "root",
-      "password": "KandM#6120",
+      "password": "Stickman7",
       "database": "restaurant_db",
       "host": "127.0.0.1",
       "dialect": "mysql"
     },
     "production": {
       "username": "root",
-      "password": "KandM#6120",
+      "password": "Stickman7",
       "database": "restaurant_db",
       "host": "127.0.0.1",
       "dialect": "mysql"

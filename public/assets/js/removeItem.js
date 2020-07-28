@@ -22,6 +22,7 @@ function getMenu() {
                 const option = $("<option>")
                 option.val(item.id)
                 option.text(item.title)
+                option.addClass("bg-dark, text-light")
                 $("#itemId").append(option)
                 // console.log(MenuItems)
             })

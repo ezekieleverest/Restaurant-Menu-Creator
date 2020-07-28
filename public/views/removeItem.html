@@ -1,3 +1,5 @@
+<!--  -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,13 +9,14 @@
   <title>Remove an Item</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
 
 <body class="bg-dark">
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="./index">Slasha's Kuttz</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark bottom">
+    <a class="navbar-brand text-danger" href="./index">Slasha's Kuttz</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,27 +24,31 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="./index">Home</a>
+          <a class="nav-link text-danger" href="./index">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./menu">Menu</a>
+          <a class="nav-link text-danger" href="./menu">Menu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./adminRoles">Admin</a>
+          <a class="nav-link text-danger" href="./adminRoles">Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger" href="./members">Log Out</a>
         </li>
       </ul>
     </div>
+    <img src="../assets/skullslogo.png" alt="Little Logo" class="smallLogo">
   </nav>
-  <div class="container">
-    <h1 class="removeItem">Remove an Item</h1>
-    <form class="removeItemForm">
-      <select id="itemId">
-        <option>Select Item</option>
+  <div class="container col-8 mt-5 text-center">
+    <h1 class="removeItemh1 mt-5">Remove an Item</h1>
+    <form class="removeItemForm mt-5 bg-dark">
+      <select id="itemId" class="bg-dark">
+        <option class="text-light bg-dark">Select Item</option>
       </select>
-      <input type="text" id="itemTitle" required>
-      <input type="number" id="itemPrice" required>
-      <input type="text" id="itemDescription" required>
-      <input class="btn btn-primary m-3" id="rmvItemBtn" type="submit" value="Remove Item">
+      <input type="text" class="rounded bg-dark text-light" id="itemTitle" required>
+      <input type="number" class="rounded bg-dark text-light" id="itemPrice" required>
+      <input type="text" class="rounded bg-dark text-light" id="itemDescription" required>
+      <input class="btn btn-primary m-3 rounded bg-danger" id="rmvItemBtn" type="submit" value="Remove Item">
     </form>
   </div>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"
