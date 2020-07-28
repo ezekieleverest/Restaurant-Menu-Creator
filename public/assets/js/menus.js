@@ -20,8 +20,8 @@ $(document).ready(function () {
     function createMenuSpot(menuData) {
         console.log(menuData)
         let html= 
-        `<div class="card m-2 bg-dark border-danger rounded-sm" data-itemId=${menuData.id}>
-            <div class="card-body">
+        `<div class="card m-2" data-itemId=${menuData.id}>
+            <div class="card-body text-center">
                 <h5 class="card-title text-white">
                     ${menuData.title}
                 </h5>

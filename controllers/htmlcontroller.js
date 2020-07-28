@@ -27,12 +27,16 @@ app.get('/removeItem', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/views/removeItem.html'))
 });
 
+app.get('/signup', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/views/signup.html'))
+});
+
 app.get("/", function(req, res) {
   // If the user already has an account send them to the members page
   if (req.user) {
     res.redirect("/adminRoles");
   }
-  res.sendFile(path.join(__dirname, "../public/views/signup.html"));
+  res.sendFile(path.join(__dirname, "../public/views/index.html"));
 });
 
 app.get("/login", function(req, res) {

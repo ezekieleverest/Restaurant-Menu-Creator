@@ -2,3 +2,39 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+#homepageh1 {
+  color: darkred;
+  
+}
+.card {
+  border-width: 3px;
+  border-color: darkred;
+  background-color: rgb(35, 40, 44);
+}
+.card-text {
+  width: 80%;
+  margin: auto
+}
+.adminh1 {
+  color: darkred
+}
+.addItemh1 {
+  color: darkred
+}
+.updateItemh1 {
+  color: darkred
+}
+#itemId {
+  border-width: 1px;
+  border-color: darkred
+}
+.removeItemh1 {
+  color: darkred
+}
+.smallLogo {
+  height: 50px
+}
+.active {
+  background-color: darkred;
+  text-color: white
+}
