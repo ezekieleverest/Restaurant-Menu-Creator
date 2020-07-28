@@ -5,5 +5,8 @@ const API = {
     },
     updateMenuItem: function (data) {
         return $.ajax({ url: "/api/admin", method: "PUT", data })
+    },
+    removeItem: function (data) {
+        return $.ajax({url: `/api/admin/${data}`, method: "DELETE"})
     }
 }
