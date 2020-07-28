@@ -1,27 +1,4 @@
 $(document).ready(function () {
-<<<<<<< HEAD
-var nameInput = $(".card-title")
-    
-$(document).on("submit", "#addItemBtn", newItemSubmit);
-
-function newItemSubmit(event) {
-    console.log(event);
-    event.preventDefault();
-    // Don't do anything if the name fields hasn't been filled out
-    if (!nameInput.val().trim().trim()) {
-      return;
-    }
-    upsertItem({
-      name: nameInput
-        .val()
-        .trim()
-    });
-  }
-  function upsertItem(menuData) {
-    $.post("/api/admin", menuData)
-      .then(getMenu);
-  }
-=======
 
     $("#addItemForm").on("submit", newItemSubmit);
 
@@ -48,7 +25,6 @@ function newItemSubmit(event) {
             price: $("#addItemPrice").val().trim(),
             description: $("#addItemDesc").val().trim()
         }
->>>>>>> 3c064d78881b1ed817bd84ea30b31064b4e1668d
 
         if (Object.values(newItem).some(val => !val)) {
             return;
