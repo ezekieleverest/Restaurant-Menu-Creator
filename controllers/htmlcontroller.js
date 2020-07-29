@@ -11,6 +11,10 @@ app.get('/menu', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/views/menu.html'))
 });
 
+app.get('/cart', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/views/cart.html'))
+});
+
 app.get('/adminRoles', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/views/adminRoles.html'))
 });
@@ -32,19 +36,26 @@ app.get('/signup', (req, res) => {
 });
 
 app.get("/", function(req, res) {
+  console.log(req.user)
   // If the user already has an account send them to the members page
   if (req.user) {
     res.redirect("/adminRoles");
-  }
-  res.sendFile(path.join(__dirname, "../public/views/index.html"));
+  
+}
+else {
+  res.sendFile(path.join(__dirname, "../public/views/index.html"))
+};
 });
 
 app.get("/login", function(req, res) {
+  console.log(req.user)
   // If the user already has an account send them to the members page
   if (req.user) {
     res.redirect("/adminRoles");
   }
-  res.sendFile(path.join(__dirname, "../public/views/login.html"));
+  else {
+  res.sendFile(path.join(__dirname, "../public/views/login.html"))
+};
 });
 
 // Here we've add our isAuthenticated middleware to this route.

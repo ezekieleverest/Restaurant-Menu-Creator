@@ -40,22 +40,15 @@ $(document).ready(function () {
     function getMenu() {
         API.getMenu()
             .then(function (data) {
-                // take all the data, loop over it (aka a map) and return html
                 let htmledData = data.map(item => createMenuSpot(item));
-                //console.log(htmledData)
-                // console.log(htmledData)
                 htmledData = htmledData.join('');
-                //console.log(htmledData)
-                // htmledData = JSON.stringify(htmledData)
                 $('#menu-target').empty().append(htmledData);
-            })
+           })
             .catch(function (err) {
                 console.log(err.message)
             });
     }
-
     function createMenuSpot(menuData) {
-        // console.log(menuData)
         let html =
             `<div class="card" data-itemId=${menuData.id}>
         <div class="card-body">
