@@ -11,6 +11,10 @@ app.get('/menu', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/views/menu.html'))
 });
 
+app.get('/cart', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/views/cart.html'))
+});
+
 app.get('/adminRoles', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/views/adminRoles.html'))
 });

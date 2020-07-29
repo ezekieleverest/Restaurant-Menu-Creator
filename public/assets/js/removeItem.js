@@ -1,7 +1,4 @@
-// function removeItem(itemId) {
-//     var item = $(".itemId")
-//     item.parentNode.removeChild(item)
-// }
+
 let MenuItems = [];
 let MenuID = 0;
 
@@ -24,7 +21,7 @@ function getMenu() {
                 option.text(item.title)
                 option.addClass("bg-dark, text-light")
                 $("#itemId").append(option)
-                // console.log(MenuItems)
+
             })
         })
         .catch(function (err) {
@@ -44,12 +41,7 @@ function selectItem() {
 }
 
 function removeItem() {
-    // const itemRmv = {
-    //     id: MenuID,
-        // title: $("#itemTitle").val(),
-        // price: $("#itemPrice").val(),
-        // description: $("#itemDescription").val()
-    // }
+
     console.log(MenuID)
     API.removeItem(MenuID)
         .then(function () {
