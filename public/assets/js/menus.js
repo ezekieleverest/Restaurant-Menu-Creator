@@ -41,5 +41,6 @@ $(document).ready(function () {
         e.preventDefault();
         // console.log(this.getAttribute('data-itemId'))
     })
-})
 
+    
+})
