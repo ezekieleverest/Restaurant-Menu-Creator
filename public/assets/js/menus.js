@@ -60,18 +60,4 @@ function createMenuSpot(menuData) {
                 <button class="bg-danger" onclick="addCart(event)" data-itemId=${menuData.id}>Add to Cart</button>
             </div>
         </div>`;
-<<<<<<< HEAD
-
-        return html;
-    }
-    getMenu()
-    $(document).on("click", ".card", function(e) {
-        e.preventDefault();
-        // console.log(this.getAttribute('data-itemId'))
-    })
-
-    
-})
-=======
 }
->>>>>>> f7c228d69d9da519b1143221881c47d5b317e852
