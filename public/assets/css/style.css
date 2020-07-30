@@ -4,8 +4,16 @@ form.login {
 }
 #homepageh1 {
   color: darkred;
-  
+  font-weight: 800;
+  font-size: 3.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
 }
+#homepageh1 .word {
+  display: inline-block;
+  line-height: 1em;
+}
+
 .card {
   border-width: 3px;
   border-color: darkred;
