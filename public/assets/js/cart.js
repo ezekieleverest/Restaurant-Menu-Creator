@@ -9,16 +9,13 @@ let totalPrice = 0
 
 $(document).ready(function () {
     displayCart()
+    displayTotal()
 })
 
 function displayCart() {
     const html = cartItems.map(x => buildItem(x)).join("")
     shoppingCartContent.empty().html(html)
-    cartItems.forEach(function(value) {
-        totalPrice += Number(value.price)
-        cartTotalPrice.empty().html((totalPrice))
-        console.log(typeof($('#cart-price-total')))
-    })
+
     if (cartItems.length) {
         $("#notification-badge").show().text(cartItems.length)
     } else {
@@ -26,7 +23,15 @@ function displayCart() {
     }
 }
 
-function buildItem(menu) {console.log(menu.price)
+function displayTotal () {
+        cartItems.forEach(function(value) {
+        totalPrice += Number(value.price)
+        cartTotalPrice.empty().html(`$${totalPrice}`)
+
+    })
+}
+
+function buildItem(menu){
     return `
 <tr class="text-light cart-menu">
     <td class="cart-menu-title">

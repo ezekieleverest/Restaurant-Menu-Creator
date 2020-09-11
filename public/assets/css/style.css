@@ -92,3 +92,16 @@ grid-row-gap: 0px;
   grid-area: 1 / 4 / 2 / 5;
   margin-left: auto;
 }
+#cart-total{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+.cart-totalspan{
+  grid-area: 1 / 1 / 2 / 3;
+}
+.cart-price-total{
+  grid-area: 1 / 4 / 2 / 5;
+}
