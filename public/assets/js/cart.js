@@ -22,15 +22,15 @@ function displayCart() {
 
 function buildItem(menu) {
     return `
-<tr class="text-light">
-    <td>
+<tr class="text-light cart-menu">
+    <td class="cart-menu-title">
         ${menu.title}
     </td>
-     <td>
+     <td class="cart-menu-price">
         ${menu.price}
     </td>
-     <td>
-        <button onclick="removeItem(event)" data-itemId="${menu.id}">X</button>
+     <td class="cart-menu-remove">
+        <button onclick="removeItem(event)" class="ml-auto" data-itemId="${menu.id}">X</button>
     </td>
 </tr>
 `;
