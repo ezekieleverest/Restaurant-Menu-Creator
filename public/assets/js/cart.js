@@ -4,6 +4,8 @@
 const cartItems = JSON.parse(localStorage.getItem('cart')) || []
 const shoppingCartContent = $('#cartItems')
 const clearCartBtn = $('#clear-cart');
+const cartTotalPrice = $('#cart-price-total');
+let totalPrice = 0
 
 $(document).ready(function () {
     displayCart()
@@ -12,7 +14,11 @@ $(document).ready(function () {
 function displayCart() {
     const html = cartItems.map(x => buildItem(x)).join("")
     shoppingCartContent.empty().html(html)
-
+    cartItems.forEach(function(value) {
+        totalPrice += Number(value.price)
+        cartTotalPrice.empty().html((totalPrice))
+        console.log(typeof($('#cart-price-total')))
+    })
     if (cartItems.length) {
         $("#notification-badge").show().text(cartItems.length)
     } else {
@@ -20,19 +26,20 @@ function displayCart() {
     }
 }
 
-function buildItem(menu) {
+function buildItem(menu) {console.log(menu.price)
     return `
 <tr class="text-light cart-menu">
     <td class="cart-menu-title">
         ${menu.title}
     </td>
      <td class="cart-menu-price">
-        ${menu.price}
+       $ ${menu.price}
     </td>
      <td class="cart-menu-remove">
         <button onclick="removeItem(event)" class="ml-auto" data-itemId="${menu.id}">X</button>
     </td>
 </tr>
+
 `;
 }
 
@@ -51,11 +58,12 @@ function buyItem(e) {
         //read the menu value
         const menu = e.target.parentElement.parentElement;
         getMenuInfo(menu);
+       
     }
 }
 
 
-function getMenuInfo(menu) {
+function getMenuInfo(menu) { 
     //create an Object with menu data
     const menuInfo = {
         // image: menu.querySelector('img').src,
@@ -66,7 +74,7 @@ function getMenuInfo(menu) {
     addToCart(menuInfo);
 }
 
-
+// function totalPrice (menu)
 
 
 
